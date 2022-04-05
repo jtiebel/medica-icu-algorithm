@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THERA-Trainer ICU Algorithm</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <!-- algorithm wrapper -->
+    <div class="algorithm-wrapper">
+
+      <!-- algorithm headline -->
+      <div class="algorithm-headline">
+        <h2>Progressive Early Mobility Algorithm</h2>
+        <h3>A Facilitator Guide for Early Mobility Protocols</h3>
+      </div>
+
+      <!-- algorithm description -->
+      <div class="algorithm-description">
+        <p>Early mobility of patients admitted to the medical intensive care unit is crucial to optimal patient outcomes. </p>
+        <p>An early mobility algorithm integrated into patient care can enhance mobilization of the critical-ill as one transition through their course of hospitalization. </p>
+      </div>
+
+      <!-- algorithm start -->
+      <div class="algorithm-steps start">
+        <div>
+          <p>Using a tool to help screen for the appropriateness of early mobility helps determine whether a patient is clinically ready to attempt early mobilization. This algorithm begins by reviewing the following question:</p>
+          <p><b>Does patient respond adequately to verbal stimulation? Richmond Agitation Sedation Scale (RASS) > -3</b></p>
+        </div>
+        <div>
+          <button id="fails" type="next">No</button>
+          <button id="passes" type="next">Yes</button>
+        </div>
+      </div>
+
+      <!-- algorithm level-1 passes -->
+      <div class="algorithm-steps passes" style="display:none;">
+        <div>
+          <button id="backStart" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Initiate early <a href="#">mobility assessment</a>.</b></p>
+        </div>
+        <div>
+          <p><b>Does the patient at least meet the following exclusion criteria:</b></p>
+          <p>Respiratory criteria</p>
+          <ul>
+            <li>Fraction of Inspired Oxygen (FiO2) > 0.6</li>
+            <li>Positive End-Expiratory Pressure (PEEP) > 10cm H2O</li>
+            <li>Hypoxemia: Pulse oximetry < 88 %</li>
+            <li>Tachypnea: Respiratory Rate > 35</li>
+            <li>Acidosis: Arterial pH Rate < 7.25</li>
+          </ul>
+          <p>Circulatory criteria</p>
+          <ul>
+            <li>New or increased vasopressor dose within past 2h</li>
+            <li>Continous infusion of a vasodilator medication</li>
+            <li>Addition of a new anti-arrythmia agent within past 24h</li>
+            <li>Unstable arrythmia within 24h</li>
+            <li>Mean arterial pressure (MAP) >140 mmHg OR < 55 mmHg</li>
+            <li>New Deep Vein Thrombosis/ Pulmonary Embolism (first 24h)</li>
+          </ul>
+          <p>Neurologic criteria</p>
+          <ul>
+            <li>Acute stroke (first 24h)</li>
+          </ul>
+          <p>Other exclusion considerations</p>
+          <ul>
+            <li>Hemoglobin > 7gm</li>
+            <li>Positive End-Expiratory Pressure (PEEP) > 10cm H2O</li>
+            <li>PLatelet count < 20,000</li>
+            <li>Temporary transvenous pacemaker</li>
+            <li>Femoral arterial OR venous line</li>
+            <li>Intra-Aortic Balloon Pump</li>
+          </ul>
+        </div>
+        <div>
+          <button id="passesFails" type="next">FAILS</button>
+          <button id="passesPasses" type="next">PASSES</button>
+        </div>
+      </div>
+
+      <!-- algorithm level-1 fails -->
+      <div class="algorithm-steps fails" style="display:none;">
+        <div>
+          <button id="backStart" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Is lack of response rooted in either Central Nervous System (CNS) etiology or unstable Intracranial Pressure (ICP)?</b></p>
+        </div>
+        <div>
+          <button id="failsFails" type="next">No</button>
+          <button id="failsPasses" type="next">Yes</button>
+        </div>
+      </div>
+
+      <!-- algorithm level-2 passesFails -->
+      <div class="algorithm-steps passesFails" style="display:none;">
+        <div>
+          <button id="backPasses" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Initiate <a href="#">Level 1 mobility protocol</a>.</b></p>
+          <p>Early Mobility Program should focus on:</p>
+          <ul>
+            <li>Passive ROM</li>
+            <li>Passive Bed Cycling</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- algorithm level-2 passesPasses -->
+      <div class="algorithm-steps passesPasses" style="display:none;">
+        <div>
+          <button id="backPasses" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Begin <a href="#">Level 2 mobility protocol</a>.</b></p>
+          <p>Early Mobility Program should focus on:</p>
+          <ul>
+            <li>PT consultation</li>
+            <li>Sitting on edge of bed</li>
+            <li>Resistance training</li>
+            <li>Passive or active leg and/or arm cycling in bed or chair</li>
+            <li>Active ROM exercises</li>
+          </ul>
+          <p><b>Can patient sit unassisted? Guidelines note that if patients can tolerate chair activity, they should always sit upright in a chair at mealtimes.</b></p>
+        </div>
+        <div>
+          <button id="passesPassesFails" type="next">No</button>
+          <button id="passesPassesPasses" type="next">Yes</button>
+        </div>
+      </div>
+
+      <!-- algorithm level-2 failsPasses -->
+      <div class="algorithm-steps failsPasses" style="display:none;">
+        <div>
+          <button id="backFails" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Ask physician to change sedation measures if possible  so the patient is only mildly sedated at most. Caregivers should then perform DATs every 12 hours.</b></p>
+        </div>
+      </div>
+
+      <!-- algorithm level-2 failsFails -->
+      <div class="algorithm-steps failsFails" style="display:none;">
+        <div>
+          <button id="backFails" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Reassess in 24 hours.</b></p>
+        </div>
+      </div>
+
+      <!-- algorithm level-3 passesPassesPasses -->
+      <div class="algorithm-steps passesPassesPasses" style="display:none;">
+        <div>
+          <button id="backPassesPasses" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Advance to <a href="#">Level 3 mobility protocol</a>.</b></p>
+          <p>Early Mobility Program should focus on:</p>
+          <ul>
+            <li>Sit-to-stand and static standing at bedside</li>
+            <li>Moving legs against gravity</li>
+            <li>Pivot transfer bed to chair</li>
+            <li>ADL training</li>
+            <li>Active leg and/or arm cycling in bed or chair</li>
+          </ul>
+          <p><b>Can patient stand with assistance?</b></p>
+        </div>
+        <div>
+          <button id="passesPassesPassesFails" type="next">NO</button>
+          <button id="passesPassesPassesPasses" type="next">YES</button>
+        </div>
+      </div>
+
+      <!-- algorithm level-3 passesPassesFails -->
+      <div class="algorithm-steps passesPassesFails" style="display:none;">
+        <div>
+          <button id="backPassesPasses" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Confine physiotherapy to <a href="#">Level 2 mobility protocol</a>.</b></p>
+          <p>Early Mobility Program should focus on:</p>
+          <ul>
+            <li>PT consultation</li>
+            <li>Sitting on edge of bed</li>
+            <li>Resistance training</li>
+            <li>Passive or active leg and/or arm cycling in bed or chair</li>
+            <li>Active ROM exercises</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- algorithm level-4 passesPassesPassesPasses -->
+      <div class="algorithm-steps passesPassesPassesPasses" style="display:none;">
+        <div>
+          <button id="backPassesPassesPasses" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Advance to <a href="#">Level 4 mobility protocol</a>.</b></p>
+          <p>Early Mobility Program should focus on:</p>
+          <ul>
+            <li>Ambulation</li>
+            <li>Strength building</li>
+            <li>Gait training</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- algorithm level-4 passesPassesPassesFails -->
+      <div class="algorithm-steps passesPassesPassesFails" style="display:none;">
+        <div>
+          <button id="backPassesPassesPasses" type="next">Back</button>
+        </div>
+        <div>
+          <p><b>Confine physiotherapy to <a href="#">Level 3 mobility protocol</a>.</b></p>
+          <p>Early Mobility Program should focus on:</p>
+          <ul>
+            <li>Sit-to-stand and static standing at bedside</li>
+            <li>Moving legs against gravity</li>
+            <li>Pivot transfer bed to chair</li>
+            <li>ADL training</li>
+            <li>Active leg and/or arm cycling in bed or chair</li>
+          </ul>
+        </div>
+        <div>
+          <button id="step2Back" type="next">NO</button>
+          <button id="step2Next" type="next">YES</button>
+        </div>
+      </div>
+
+    <!-- algorithm js -->
+    <script type="text/javascript" src="script.js"></script>
+
+  </body>
+
+</html>
+
+

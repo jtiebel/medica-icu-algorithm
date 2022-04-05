@@ -1,0 +1,15 @@
+.algorithm-wrapper {
+    max-width: 800px;
+}
+
+.algorithm-headline, .algorithm-description {
+    text-align: left;
+}
+
+.algorithm-steps{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: #1a9d74 solid 1px;
+    text-align: left;
+}
+
